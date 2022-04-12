@@ -6,7 +6,7 @@
 
 /* tamaño de la aplicación */
 :root {
-  font-size: 16px;
+  font-size: 13px;
 }
 
 body {
@@ -25,6 +25,6 @@ body {
 
 @media screen and (max-width: 60rem){ /* 950px */
   :root {
-      font-size: 14px;
+      font-size: 12px;
   }
 }
