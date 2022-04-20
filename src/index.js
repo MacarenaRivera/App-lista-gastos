@@ -14,7 +14,7 @@ import Register from "./components/Register";
 import { Helmet } from "react-helmet";
 import favicon from "./images/logo.png";
 import Background from "./elements/Background";
-
+import { AuthProvider } from "./contexts/AuthContext";
 
 WebFont.load({
   google: {
@@ -26,21 +26,23 @@ WebFont.load({
 const Index = () => {
   return (
     <>
-    <Helmet>
-      <link rel="shortcut icon" href={favicon} type="image/x-icon" />
-    </Helmet>
-      <BrowserRouter>
-        <Container>
-          <Routes>
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-            <Route path="categories" element={<ExpensesByCategory />} />
-            <Route path="list" element={<ExpenseList />} />
-            <Route path="edit/:id" element={<EditExpenses />} />
-            <Route path="/" element={<App />} />
-          </Routes>
-        </Container>
-      </BrowserRouter>
+      <Helmet>
+        <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+      </Helmet>
+      <AuthProvider>
+        <BrowserRouter>
+          <Container>
+            <Routes>
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+              <Route path="categories" element={<ExpensesByCategory />} />
+              <Route path="list" element={<ExpenseList />} />
+              <Route path="edit/:id" element={<EditExpenses />} />
+              <Route path="/" element={<App />} />
+            </Routes>
+          </Container>
+        </BrowserRouter>
+      </AuthProvider>
       <Background />
     </>
   );
