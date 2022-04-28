@@ -2,6 +2,8 @@ import React from "react";
 import {Helmet} from "react-helmet";
 import  {Header, Title, HeaderContainer, ContainerButtons} from "./elements/Header";
 import Button from "./elements/Button";
+import LogoutButton from "./elements/LogoutButton";
+import ExpenseForm from "./components/ExpenseForm";
 
 const App = () => {
   return ( 
@@ -15,10 +17,11 @@ const App = () => {
           <ContainerButtons>
             <Button to="categories">Categorías</Button>
             <Button to="list">Lista de Gastos</Button>
-            <Button to="">X</Button>
+            <LogoutButton />
           </ContainerButtons>
         </HeaderContainer>
       </Header>
+      <ExpenseForm />
     </>
    );
 }
