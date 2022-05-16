@@ -11,7 +11,6 @@ import { ReactComponent as PlusIcon } from "../images/plus.svg";
 import CategorySelect from "./CategorySelect";
 import DatePicker from "./DatePicker";
 import getUnixTime from "date-fns/getUnixTime";
-import fromUnixTime from "date-fns/fromUnixTime";
 import addExpense from "../firebase/addExpense";
 import { useAuth } from "../contexts/AuthContext";
 import Alert from "../elements/Alert";
@@ -57,13 +56,13 @@ const ExpenseForm = () => {
           setAlert({
             type: "exito",
             message: "El gasto fue agregado correctamente.",
-          })
-          .catch((error) => {
-            setAlertState(true);
-            setAlert({
-              type: "error",
-              message: "Hubo un problema al intentar agregar tu gasto.",
-            });
+          });
+        })
+        .catch(() => {
+          setAlertState(true);
+          setAlert({
+            type: "error",
+            message: "Hubo un problema al intentar agregar tu gasto.",
           });
         });
     } else {
